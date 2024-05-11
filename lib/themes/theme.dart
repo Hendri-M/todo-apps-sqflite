@@ -9,7 +9,8 @@ Color formFieldBgColor = const Color(0xFFFFFFFF);
 Color barrierColor = const Color(0xFFD9D9D9);
 
 // Text Color
-Color textColor = const Color(0xFF000000);
+Color textColorBlack = const Color(0xFF000000);
+Color textColorWhite = const Color(0xFFFFFFFF);
 Color hintColor = const Color(0xFF8A8A8A);
 Color cretedColor = const Color(0xFF696969);
 
