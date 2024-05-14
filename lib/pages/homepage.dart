@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_apps/items/items.dart';
 import 'package:todo_apps/themes/theme.dart';
+import 'package:todo_apps/widgets/bottomsheet.dart';
 import 'package:todo_apps/widgets/staggered_grid.dart';
 
 class Home extends StatefulWidget {
@@ -18,7 +19,9 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: background,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          bottomSheets(context, selectedPriority);
+        },
         backgroundColor: fabColor,
         splashColor: Colors.pink[300],
         shape: const CircleBorder(),
