@@ -13,6 +13,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String? selectedPriority;
+  TextEditingController? title;
+  TextEditingController? desc;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class _HomeState extends State<Home> {
       backgroundColor: background,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          bottomSheets(context, selectedPriority);
+          bottomSheets(context, selectedPriority, title, desc);
         },
         backgroundColor: fabColor,
         splashColor: Colors.pink[300],
@@ -46,25 +48,27 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 12),
               Row(
                 children: [
-                  Expanded(
-                      child: TextFormField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      isCollapsed: true,
-                      isDense: true,
-                      fillColor: barrierColor,
-                      hintText: 'Search. . .',
-                      hintStyle: textStyle.copyWith(
-                          fontWeight: regularText, color: hintColor),
-                      contentPadding:
-                          const EdgeInsets.only(left: 10, top: 5, bottom: 5),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        isCollapsed: true,
+                        isDense: true,
+                        fillColor: barrierColor,
+                        hintText: 'Search. . .',
+                        hintStyle: textStyle.copyWith(
+                            fontWeight: regularText, color: hintColor),
+                        contentPadding:
+                            const EdgeInsets.only(left: 10, top: 5, bottom: 5),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
+                      style: textStyle.copyWith(
+                          fontWeight: regularText, color: textColorBlack),
                     ),
-                    style: textStyle.copyWith(
-                        fontWeight: regularText, color: textColorBlack),
-                  )),
+                  ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: DropdownButtonFormField(

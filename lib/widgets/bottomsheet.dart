@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todo_apps/items/items.dart';
 import 'package:todo_apps/themes/theme.dart';
 
-void bottomSheets(BuildContext context, String? selected) {
+void bottomSheets(BuildContext context, String? selected,
+    TextEditingController? title, TextEditingController? desc) {
   showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -40,7 +41,7 @@ void bottomSheets(BuildContext context, String? selected) {
                             fillColor: barrierColor,
                             isCollapsed: true,
                             contentPadding: const EdgeInsets.only(
-                                left: 5, top: 3, bottom: 3),
+                                left: 5, top: 2, bottom: 5),
                             hintText: 'Priority',
                             hintStyle: textStyle.copyWith(
                                 fontSize: 12, fontWeight: regularText),
@@ -64,28 +65,47 @@ void bottomSheets(BuildContext context, String? selected) {
                     const SizedBox(width: 5),
                     Expanded(
                         child: TextFormField(
+                      controller: title,
                       decoration: InputDecoration(
-                          filled: true,
-                          fillColor: barrierColor,
-                          isCollapsed: true,
-                          hintText: 'Title',
-                          hintStyle: textStyle.copyWith(
-                              fontSize: 12, fontWeight: regularText),
-                          contentPadding:
-                              const EdgeInsets.only(left: 5, top: 2, bottom: 5),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(5))),
+                        filled: true,
+                        fillColor: barrierColor,
+                        isCollapsed: true,
+                        hintText: 'Title',
+                        hintStyle: textStyle.copyWith(
+                            fontSize: 12, fontWeight: regularText),
+                        contentPadding:
+                            const EdgeInsets.only(left: 5, top: 2, bottom: 5),
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(5)),
+                      ),
                     ))
                   ],
                 ),
+                const SizedBox(height: 15),
+                TextFormField(
+                  controller: desc,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: barrierColor,
+                    hintText: 'Your Todo',
+                    hintStyle: textStyle.copyWith(fontWeight: regularText),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(5)),
+                  ),
+                  maxLines: 8,
+                ),
+                const SizedBox(height: 10),
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      title!.clear();
+                      desc!.clear();
+                    },
                     style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(btnSave),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
+                        backgroundColor: WidgetStatePropertyAll(btnSave),
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
                         ))),
                     child: Text(
