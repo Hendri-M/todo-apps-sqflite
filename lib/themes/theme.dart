@@ -20,6 +20,9 @@ Color prYellow = const Color(0xFFF5D323);
 Color prGreen = const Color(0xFF34F523);
 Color prOrange = const Color(0xFFF28332);
 
+//Color
+Color btnSave = const Color(0xFF475C7A);
+
 // Fonts and Style
 TextStyle textStyle = GoogleFonts.mulish();
 
